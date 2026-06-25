@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="contacts_phone_country_flag.PhoneCountryFlagField"
+       t-inherit="web.FormPhoneField" t-inherit-mode="primary">
+        <xpath expr="//t[@t-if='props.readonly']" position="before">
+            <span t-if="countryFlag" class="o_phone_country_flag me-1" t-esc="countryFlag"/>
+        </xpath>
+    </t>
+
+</templates>
