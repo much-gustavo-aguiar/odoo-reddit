@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright much. Consulting (https://muchconsulting.com) -->
+<!-- License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0). -->
+<odoo>
+    <record id="mailing_list_view_form" model="ir.ui.view">
+        <field name="name">mailing.list.form.public.name</field>
+        <field name="model">mailing.list</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_list_view_form"/>
+        <field name="arch" type="xml">
+            <field name="is_public" position="after">
+                <field name="public_name"
+                       placeholder="e.g. Our Newsletter"
+                       invisible="not is_public"/>
+            </field>
+        </field>
+    </record>
+</odoo>

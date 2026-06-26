@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright much. Consulting (https://muchconsulting.com) -->
+<!-- License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0). -->
+<odoo>
+    <!-- Show the public-facing name to recipients on the subscription page,
+         keeping the internal name for backend users only. -->
+    <template id="unsubscribe_form" inherit_id="mass_mailing.unsubscribe_form">
+        <!-- Blocklisted section: list of memberships -->
+        <xpath expr="//t[@t-esc='mailing_list.name']" position="attributes">
+            <attribute name="t-esc">mailing_list.public_name_display</attribute>
+        </xpath>
+        <!-- Manage section: subscribed / not-subscribed list -->
+        <xpath expr="//t[@t-set='title']" position="attributes">
+            <attribute name="t-value">mailing_list.public_name_display</attribute>
+        </xpath>
+        <!-- "You may also be interested in" section -->
+        <xpath expr="//input[@t-att-title='mailing_list.name']" position="attributes">
+            <attribute name="t-att-title">mailing_list.public_name_display</attribute>
+        </xpath>
+        <xpath expr="//span[@t-out='mailing_list.name']" position="attributes">
+            <attribute name="t-out">mailing_list.public_name_display</attribute>
+        </xpath>
+    </template>
+</odoo>
